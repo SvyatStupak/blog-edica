@@ -17,7 +17,7 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $categories = Category::all();
-        return view('admin.categories.index', [
+        return view('admin.category.index', [
             'categories' => $categories,
         ]);
     }

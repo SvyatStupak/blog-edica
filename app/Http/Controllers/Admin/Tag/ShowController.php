@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Tag;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Models\Tag;
 
 class ShowController extends Controller
 {
@@ -14,10 +13,10 @@ class ShowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Category $category)
+    public function __invoke(Tag $tag)
     {
-        return view('admin.category.show', [
-            'category' => $category,
+        return view('admin.tag.show', [
+            'tag' => $tag,
         ]);
     }
 }

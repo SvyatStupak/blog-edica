@@ -21,7 +21,7 @@ class UpdateController extends Controller
 
         $category->update($data);
 
-        return view('admin.categories.show', [
+        return view('admin.category.show', [
             'category' => $category,
         ]);
     }
