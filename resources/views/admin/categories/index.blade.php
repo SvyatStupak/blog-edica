@@ -40,7 +40,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Название</th>
-                                            <th colspan="2" class="text-center">Действие</th>
+                                            <th colspan="3" class="text-center">Действие</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,7 +49,17 @@
                                                 <td>{{ $category->id }}</td>
                                                 <td>{{ $category->title }}</td>
                                                 <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="nav-icon fas fa-solid fa-eye"></i></a></td>
-                                                <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="nav-icon fas fa-solid fa-pen-fancy"></i></a></td>
+                                                <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="nav-icon fas text-success fa-pen-fancy"></i></a></td>
+                                                <td>
+                                                    <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="border-0 bg-white" >
+                                                            <i class="nav-icon fas text-success fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+
                                             </tr>
                                         @endforeach
 

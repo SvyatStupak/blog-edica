@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Category\CreateController;
+use App\Http\Controllers\Admin\Category\DeleteController;
 use App\Http\Controllers\Admin\Category\EditController;
 use App\Http\Controllers\Admin\Category\IndexController as AdminCategoryIndexController;
 use App\Http\Controllers\Admin\Category\ShowController;
@@ -38,6 +39,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/{category}', ShowController::class)->name('admin.category.show');
         Route::get('/{category}/edit', EditController::class)->name('admin.category.edit');
         Route::patch('/{category}', UpdateController::class)->name('admin.category.update');
+        Route::delete('/{category}', DeleteController::class)->name('admin.category.delete');
     });
 });
 
