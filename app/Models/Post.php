@@ -11,4 +11,5 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $quarded = false;
+    protected $fillable = ['title', 'content', 'preview_image', 'main_image'];
 }
