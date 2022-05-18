@@ -34,7 +34,7 @@
                                 <input type="text" name="title" class="form-control" placeholder="Название поста"
                                     value="{{ $post->title }}">
                                 @error('title')
-                                    <div class="text-danger">Поле обезательное для заполнения</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
