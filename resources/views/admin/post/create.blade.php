@@ -41,7 +41,7 @@
                                     {{ old('content') }}
                                 </textarea>
                                 @error('content')
-                                    <div class="text-danger">Поле обезательное для заполнения</div>
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             @error('preview_image')
-                                <div class="text-danger">Поле обезательное для заполнения</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label for="exampleInputFile">Добавить главное изображени</label>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             @error('main_image')
-                                <div class="text-danger">Поле обезательное для заполнения</div>
+                                <div class="text-danger">{{ $message }}</div>
                             @enderror
                             <div class="form-group">
                                 <label>Select</label>
