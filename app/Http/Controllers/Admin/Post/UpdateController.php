@@ -8,7 +8,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
     /**
      * Handle the incoming request.
@@ -20,13 +20,8 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
             // dd($data);
-        $tagIds = $data['tag_ids'];
-        unset($data['tag_ids']);
+        $post = $this->service->update($data, $post);
 
-        $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
-        $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-        $post->update($data);
-        $post->tags()->sync($tagIds);
 
         return view('admin.post.show', [
             'post' => $post,
