@@ -26,6 +26,14 @@ use App\Http\Controllers\Admin\Post\UpdateController as AdminPostUpdateControlle
 use App\Http\Controllers\Admin\Post\DeleteController as AdminPostDeleteController;
 use App\Http\Controllers\Admin\Post\IndexController as AdminPostIndexController;
 
+use App\Http\Controllers\Admin\User\CreateController as AdminUserCreateController;
+use App\Http\Controllers\Admin\User\StoreController as AdminUserStoreController;
+use App\Http\Controllers\Admin\User\ShowController as AdminUserShowController;
+use App\Http\Controllers\Admin\User\EditController as AdminUserEditController;
+use App\Http\Controllers\Admin\User\UpdateController as AdminUserUpdateController;
+use App\Http\Controllers\Admin\User\DeleteController as AdminUserDeleteController;
+use App\Http\Controllers\Admin\User\IndexController as AdminUserIndexController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -77,6 +85,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/{post}/edit', AdminPostEditController::class)->name('admin.post.edit');
         Route::patch('/{post}', AdminPostUpdateController::class)->name('admin.post.update');
         Route::delete('/{post}', AdminPostDeleteController::class)->name('admin.post.delete');
+    });
+
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
+        Route::get('/', AdminUserIndexController::class)->name('admin.user.index');
+        Route::get('/create', AdminUserCreateController::class)->name('admin.user.create');
+        Route::post('/', AdminUserStoreController::class)->name('admin.user.store');
+        Route::get('/{user}', AdminUserShowController::class)->name('admin.user.show');
+        Route::get('/{user}/edit', AdminUserEditController::class)->name('admin.user.edit');
+        Route::patch('/{user}', AdminUserUpdateController::class)->name('admin.user.update');
+        Route::delete('/{user}', AdminUserDeleteController::class)->name('admin.user.delete');
     });
 });
 
