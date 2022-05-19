@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление категории</h1>
+                        <h1 class="m-0">Добавление Пользователя</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -40,13 +40,6 @@
                                 <input type="text" name="email" class="form-control" placeholder="Email">
                             </div>
                             @error('email')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-group">
-                                <input type="text" name="password" class="form-control" placeholder="Ведите пароль">
-                            </div>
-                            @error('password')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
 
