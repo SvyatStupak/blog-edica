@@ -55,7 +55,7 @@
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="border-0 bg-white" >
-                                                            <i class="nav-icon fas text-success fa-trash"></i>
+                                                            <i class="nav-icon fas text-danger fa-trash"></i>
                                                         </button>
                                                     </form>
                                                 </td>
