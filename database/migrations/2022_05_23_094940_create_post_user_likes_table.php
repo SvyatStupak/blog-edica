@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('post_user_likes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->index('post_id', 'pul_post_idx');
