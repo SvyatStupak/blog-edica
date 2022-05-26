@@ -50,6 +50,10 @@
                             @csrf
                             <input type="submit" value="Выйти" class="btn btn-primary">
                         </form>
+
+                    </li>
+                    <li>
+                        <a class="btn btn-green" href="{{ route('personal.main.index') }}">Войти</a>
                     </li>
                 </ul>
             </div>

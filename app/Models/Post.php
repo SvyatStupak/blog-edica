@@ -14,6 +14,9 @@ class Post extends Model
     protected $quarded = false;
     protected $fillable = ['title', 'content', 'preview_image', 'main_image', 'category_id'];
 
+    protected $withCount = ['likedPosts'];
+    protected $with = ['category'];
+
     public function tags() {
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
     }
@@ -24,5 +27,9 @@ class Post extends Model
 
     public function likedPosts() {
         return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class, 'post_id', 'id');
     }
 }

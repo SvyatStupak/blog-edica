@@ -1,5 +1,9 @@
+<?php
+    use Carbon\Carbon;
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +23,7 @@
     <header class="edica-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/images/logo.svg') }}" alt="Edica"></a>
+                <a class="navbar-brand" href="#"><img src="{{ asset('assets/images/logo.svg') }}" alt="Блог"></a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav"
                     aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,6 +34,25 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('main.index') }}">Блог</a>
                         </li>
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                        </li>
+                        <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <input type="submit" value="Выйти" class="nav-link">
+                        </form>
+                        </li>
+                        @endauth
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>
+                        </li>
+                        @endguest
                     </ul>
                 </div>
             </nav>
@@ -108,13 +131,7 @@
                 </div>
             </div>
             <div class="footer-bottom-content">
-                <nav class="nav footer-bottom-nav">
-                    <a href="#!">Privacy & Policy</a>
-                    <a href="#!">Terms</a>
-                    <a href="#!">Site Map</a>
-                </nav>
-                <p class="mb-0">© Edica. 2020 <a href="https://www.bootstrapdash.com" target="_blank"
-                        rel="noopener noreferrer" class="text-reset">bootstrapdash</a> . All rights reserved.</p>
+                <p class="mb-0">© Blog. {{ Carbon::now()->year }}
             </div>
         </div>
     </footer>
